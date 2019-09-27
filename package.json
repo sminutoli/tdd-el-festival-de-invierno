@@ -23,6 +23,9 @@
   },
   "homepage": "https://github.com/sminutoli/tdd-el-festival-de-invierno#readme",
   "dependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "babel-jest": "^24.9.0",
     "jest": "^24.9.0"
   }
 }
