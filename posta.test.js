@@ -1,10 +1,11 @@
 function crearCarrera() {
   return {
-    admitir() {
-
+    _participantes: [],
+    admitir(postulantes) {
+      this._participantes = postulantes;
     },
     participantes() {
-      
+      return this._participantes;
     }
   }
 }
