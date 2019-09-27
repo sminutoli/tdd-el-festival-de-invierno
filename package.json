@@ -1,0 +1,28 @@
+{
+  "name": "tdd-el-festival-de-invierno",
+  "version": "1.0.0",
+  "description": "Ejercicio de TDD – El festival de los vikingos",
+  "main": "posta.test.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sminutoli/tdd-el-festival-de-invierno.git"
+  },
+  "keywords": [
+    "tdd",
+    "oop",
+    "fp"
+  ],
+  "author": "sminutoli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sminutoli/tdd-el-festival-de-invierno/issues"
+  },
+  "homepage": "https://github.com/sminutoli/tdd-el-festival-de-invierno#readme",
+  "dependencies": {
+    "jest": "^24.9.0"
+  }
+}
