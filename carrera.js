@@ -1,4 +1,4 @@
-const byVelocidad = (participanteA, particpanteB) => participanteA.velocidad > particpanteB.velocidad ? -1 : 1;
+const elMasVeloz = (participanteA, particpanteB) => participanteA.esMasVelozQue(particpanteB) ? -1 : 1;
 function crearCarrera(kmts) {
   return {
     _participantes: [],
@@ -10,7 +10,7 @@ function crearCarrera(kmts) {
       return this._participantes;
     },
     ganador() {
-      return this._participantes.sort(byVelocidad)[0];
+      return this._participantes.sort(elMasVeloz)[0];
     },
     competir() {
       this.participantes().forEach(participante => participante.hambre += this._kmts);
