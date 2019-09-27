@@ -1,7 +1,8 @@
 const byVelocidad = (participanteA, particpanteB) => participanteA.velocidad > particpanteB.velocidad ? -1 : 1;
-function crearCarrera() {
+function crearCarrera(kmts) {
   return {
     _participantes: [],
+    _kmts: kmts,
     admitir(postulantes) {
       this._participantes = postulantes;
     },
@@ -10,12 +11,15 @@ function crearCarrera() {
     },
     ganador() {
       return this._participantes.sort(byVelocidad)[0];
+    },
+    competir() {
+      this.participantes().forEach(participante => participante.hambre += this._kmts);
     }
   }
 }
 
-const hipo = { nombre: 'Hipo', velocidad: 13 };
-const astrid = { nombre: 'Astrid', velocidad: 10 };
+const hipo = { nombre: 'Hipo', velocidad: 13, hambre: 0 };
+const astrid = { nombre: 'Astrid', velocidad: 10, hambre: 0 };
 describe('una carrera', () => {
   it('admite a cualquier participante', () => {
     // setup
