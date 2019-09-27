@@ -4,7 +4,7 @@ function crearCarrera(kmts) {
     _participantes: [],
     _kmts: kmts,
     admitir(postulantes) {
-      this._participantes = postulantes;
+      this._participantes = postulantes.filter(p => p.puedeParticiparDeUnaPosta());
     },
     participantes() {
       return this._participantes;

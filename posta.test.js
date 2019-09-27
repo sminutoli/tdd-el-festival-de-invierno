@@ -1,5 +1,5 @@
 import crearCarrera from './carrera';
-import { hipo, astrid } from './vikingos';
+import { hipo, astrid, patapez } from './vikingos';
 
 function setupCarrera(kmts) {
   const carrera = crearCarrera(kmts);
@@ -12,6 +12,18 @@ describe('una carrera', () => {
     const { carrera, postulantes } = setupCarrera(15);
     // act
     carrera.admitir(postulantes);
+
+    // expect
+    expect(carrera.participantes()).toEqual(postulantes);
+  });
+  it('admite a cualquier participante que pueda participar', () => {
+    const { carrera, postulantes } = setupCarrera(15);
+    const patapezConHambre = {
+      __proto__: patapez,
+      hambre: 51
+    }
+    // act
+    carrera.admitir([...postulantes, patapezConHambre]);
 
     // expect
     expect(carrera.participantes()).toEqual(postulantes);
