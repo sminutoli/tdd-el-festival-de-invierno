@@ -38,4 +38,16 @@ describe('una carrera', () => {
     // expect
     expect(carrera.ganador()).toEqual(hipo);
   });
+  it('cada participante gana hambre en relación a los kilómetros', () => {
+    // setup
+    const carrera = crearCarrera(15);
+    const postulantes = [hipo, astrid];
+    
+    // act
+    carrera.admitir(postulantes);
+    carrera.competir();
+
+    // expect
+    expect(carrera.participantes().find(p => p === hipo).hambre).toEqual(15);
+  });
 });
