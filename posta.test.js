@@ -1,3 +1,4 @@
+const byVelocidad = (participanteA, particpanteB) => participanteA.velocidad > particpanteB.velocidad ? -1 : 1;
 function crearCarrera() {
   return {
     _participantes: [],
@@ -6,6 +7,9 @@ function crearCarrera() {
     },
     participantes() {
       return this._participantes;
+    },
+    ganador() {
+      return this._participantes.sort(byVelocidad)[0];
     }
   }
 }
@@ -25,7 +29,7 @@ describe('una carrera', () => {
   });
   it('puede determinar quien gana en base a su velocidad', () => {
     // setup
-    const carrera = crearCarrera(15);
+    const carrera = crearCarrera();
     const postulantes = [hipo, astrid];
     
     // act
