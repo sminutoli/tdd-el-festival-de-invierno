@@ -28,7 +28,7 @@ describe('una carrera', () => {
     const patapezConHambre = {
       __proto__: patapez,
       hambre: 51
-    }
+    };
     // act
     carrera.admitir([...postulantes, patapezConHambre]);
 
@@ -65,5 +65,16 @@ describe('un combate', () => {
 
     // expect
     expect(combate.ganador()).toEqual(patan);
+  });
+  it('puede definir una barbarosidad minima para participar', () => {
+    const { combate, postulantes } = setupCombate(10);
+
+    // act
+    combate.admitir(postulantes);
+
+    // expect
+    expect(combate.participantes().includes(patan)).toBe(true);
+    expect(combate.participantes().includes(hipo)).toBe(true);
+    expect(combate.participantes().includes(astrid)).toBe(false);
   });
 });
