@@ -1,10 +1,17 @@
 import crearCarrera from './carrera';
-import { hipo, astrid, patapez } from './vikingos';
+import crearCombate from './combate';
+import { hipo, astrid, patan, patapez } from './vikingos';
 
 function setupCarrera(kmts) {
   const carrera = crearCarrera(kmts);
   const postulantes = [hipo, astrid];
   return { carrera, postulantes };
+}
+
+function setupCombate(barbarosidad) {
+  const combate = crearCombate(barbarosidad);
+  const postulantes = [hipo, astrid, patan];
+  return { combate, postulantes };
 }
 
 describe('una carrera', () => {
@@ -46,5 +53,17 @@ describe('una carrera', () => {
 
     // expect
     expect(carrera.participantes().find(p => p === hipo).hambre).toEqual(15);
+  });
+});
+
+describe('un combate', () => {
+  it('puede determinar quien gana en base a su barbarosidad', () => {
+    const { combate, postulantes } = setupCombate();
+    
+    // act
+    combate.admitir(postulantes);
+
+    // expect
+    expect(combate.ganador()).toEqual(patan);
   });
 });
