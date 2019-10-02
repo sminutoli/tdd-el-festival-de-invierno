@@ -3,6 +3,7 @@ const elMasBarbaro = (participanteA, particpanteB) => participanteA.esMasBarbaro
 
 export default (barbarosidadRequerida) => ({
     __proto__: crearCarrera(),
+    esfuerzo: 10,
     admitir(postulantes) {
         super.admitir(postulantes);
         if(barbarosidadRequerida) {

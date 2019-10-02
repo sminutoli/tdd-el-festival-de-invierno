@@ -3,8 +3,9 @@ function crearCarrera(kmts) {
   return {
     _participantes: [],
     _kmts: kmts,
+    esfuerzo: kmts,
     admitir(postulantes) {
-      this._participantes = postulantes.filter(p => p.puedeParticiparDeUnaPosta());
+      this._participantes = postulantes.filter(p => p.puedeParticiparDeUnaPosta(this));
     },
     participantes() {
       return this._participantes;
@@ -13,7 +14,7 @@ function crearCarrera(kmts) {
       return this._participantes.sort(elMasVeloz)[0];
     },
     competir() {
-      this.participantes().forEach(participante => participante.hambre += this._kmts);
+      this.participantes().forEach(participante => participante.participarDeUnaPosta(this));
     }
   }
 }

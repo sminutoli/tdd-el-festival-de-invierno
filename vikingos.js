@@ -9,9 +9,13 @@ const hipo = {
   esMasBarbaroQue(otroVikingo) {
     return this.barbarosidad > otroVikingo.barbarosidad;
   },
-  puedeParticiparDeUnaPosta() {
-    return this.hambre < 100;
+  puedeParticiparDeUnaPosta({ esfuerzo = 0 }) {
+    return this.hambre < 100 && esfuerzo < (100 - this.hambre);
   },
+  participarDeUnaPosta({ esfuerzo }) {
+    this.hambre += esfuerzo;
+    return this;
+  }
 };
 
 const astrid = {
@@ -39,6 +43,10 @@ const patapez = {
   puedeParticiparDeUnaPosta() {
     return this.hambre < 50;
   },
+  participarDeUnaPosta({ esfuerzo }) {
+    this.hambre += esfuerzo * 2;
+    return this;
+  }
 };
 
 export {

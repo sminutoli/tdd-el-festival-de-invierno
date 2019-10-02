@@ -54,6 +54,15 @@ describe('una carrera', () => {
     // expect
     expect(carrera.participantes().find(p => p === hipo).hambre).toEqual(15);
   });
+  it('si el esfuerzo es demasiado, el vikingo no participa', () => {
+    const { carrera, postulantes } = setupCarrera(105);
+
+    // act
+    carrera.admitir(postulantes);
+
+    // expect
+    expect(carrera.participantes()).toEqual([]);
+  });
 });
 
 describe('un combate', () => {
